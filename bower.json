@@ -1,0 +1,29 @@
+{
+  "name": "ko-ui-autocomplete",
+  "version": "0.0.0",
+  "homepage": "https://github.com/EikosPartners/ko-ui-autocomplete",
+  "description": "knockout jquery ui autocomplete component",
+  "main": "index.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "knockout",
+    "jquery",
+    "ui",
+    "autocomplete",
+    "component"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "*",
+    "!index.js"
+  ],
+  "dependencies": {
+    "knockout": "~3.3.0",
+    "jquery": "~2.1.4",
+    "jqueryui": "~1.11.4"
+  }
+}

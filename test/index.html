@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>POC</title>
+        <meta charset="utf-8" />
+    <!--    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/smoothness/jquery-ui.css" /> -->
+        <script src="../bower_components/knockout/dist/knockout.debug.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/jqueryui/jquery-ui.js"></script>
+        <script src="../index.js"></script>
+        <script>
+            setTimeout(function(){
+                console.log(5);
+                var selectedItem = ko.observable();
+                selectedItem.subscribe( function(change) { console.log("changed:", change)});
+                ko.applyBindings({selectedItem: selectedItem});
+
+                //$("#something").ko_autocomplete({ source: ['one', 'two', 'three', 'four']});
+            });
+        </script>
+        <style>
+            .selected { color: red; }
+        </style>
+    </head>
+
+    <body>
+        <span id="autocomplete" data-bind="ui_autocomplete : {
+            source: ['one', 'two', 'three', 'four'],
+            selected: selectedItem,
+            dropdown:true
+        }"></span>
+
+    </body>
+</html>
