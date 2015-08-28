@@ -145,6 +145,10 @@
             $(element).empty().append($input = $("<input>"));
             api = $input.ko_autocomplete(options);
 
+            if (options.selected !== undefined) {
+                $input.val(options.selected);
+            }
+
             if ("function" === typeof options.api) {
                 options.api.call(this, element, api, options);
             }
