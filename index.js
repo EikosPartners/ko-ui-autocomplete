@@ -85,6 +85,14 @@
                 .anonymousTemplate(this.template)
                 .nodes(this.template);
 
+            if (this.options.selected) {
+                this.element.val(this.options.selected());
+            }
+
+            if (this.options.class) {
+                this.element.addClass(this.options.class);
+            }
+
             if (this.options.dropdown) {
 
                 this.element.blur(function () {
@@ -144,10 +152,6 @@
 
             $(element).empty().append($input = $("<input>"));
             api = $input.ko_autocomplete(options);
-
-            if (options.selected !== undefined) {
-                $input.val(options.selected);
-            }
 
             if ("function" === typeof options.api) {
                 options.api.call(this, element, api, options);
