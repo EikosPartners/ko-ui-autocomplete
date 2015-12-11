@@ -25,7 +25,7 @@
 
     $.widget("custom.ko_autocomplete", $.ui.autocomplete, {
         _create: function ( ) {
-            var options, that = this;
+            var options, selection, that = this;
 
 
             options = this.options = $.extend({
@@ -48,7 +48,7 @@
             this.options.source = function ( request, response ) {
                 var matcher = new RegExp((options.strict ? "^" : "") +
                     $.ui.autocomplete.escapeRegex(request.term));
-                console.log(request.term)
+                //console.log(request.term)
                 response(options._source().map(function ( item ) {
                     if ("object" !== typeof item) {
                         item = {
@@ -86,7 +86,13 @@
                 .nodes(this.template);
 
             if (this.options.selected) {
-                this.element.val(this.options.selected());
+                selection = this.options.selected();
+
+                if (selection && typeof selection === 'string') {
+                    this.element.val(selection);
+                } else if (selection && selection.label) {
+                    this.element.val(selection.label);
+                }
             }
 
             if (this.options.class) {
@@ -109,6 +115,10 @@
                         that.element.focus();
                     }
                 });
+            }
+
+            if (this.options.disabled) {
+                this.element[0].setAttribute("disabled", "true");
             }
         },
         _search: function ( string ) {
