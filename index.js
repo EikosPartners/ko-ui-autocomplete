@@ -140,7 +140,7 @@
          * @param {Object} options finetune controls
          * @param {Array<String>} options.source=[] available tags
          */
-        "init": function (
+        "update": function (
             element,
             valueAccessor,
             allBindingAccessor,
