@@ -30,7 +30,7 @@
 
             options = this.options = $.extend({
                 source: [ ],
-                template: "<span data-bind='text:value'></span>",
+                template: "<span data-bind='text:label'></span>",
                 selected: null,
                 strict: false
             }, this.options);
@@ -55,6 +55,8 @@
                             label: item,
                             value: item
                         };
+                    } else if (!item.label) {
+                        item.label = item.value;
                     }
                     if (!request.term || matcher.test(item.label)) {
                         return item;
@@ -143,7 +145,7 @@
         }
     });
 
-    ko.bindingHandlers.ui_autocomplete = {
+    ko.bindingHandlers.uiAutocomplete = {
         /**
          * initialize binding handler
          * @param {Element} element dom piece to use
