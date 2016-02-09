@@ -75,10 +75,13 @@
                // noResults: '',
                // results: function () {}
            // };
-
             this._super();
 
+            // temporary remove mouseenter/default hover effects
+            this.menu._off(this.menu.element, 'mouseenter .ui-menu-item');
+
             $('.ui-helper-hidden-accessible').remove();
+
 
             this.template = $("<li>");
             this.template.append(this.options.template);
