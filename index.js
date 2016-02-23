@@ -47,7 +47,7 @@
 
             this.options.source = function ( request, response ) {
                 var matcher = new RegExp((options.strict ? "^" : "") +
-                    $.ui.autocomplete.escapeRegex(request.term));
+                    $.ui.autocomplete.escapeRegex(request.term), options.matchCase ? "" : "i");
                 //console.log(request.term)
                 response(options._source().map(function ( item ) {
                     if ("object" !== typeof item) {
