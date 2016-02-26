@@ -69,6 +69,8 @@
             };
 
             this.options.change = function ( event, ui ) {
+                ui.item ? options.selected(ui.item) : options.selected('clear');
+                options.onChange && options.onChange();
             };
 
           //  this.options.messages = {
