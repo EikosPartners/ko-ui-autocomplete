@@ -1,6 +1,6 @@
 {
   "name": "ko-ui-autocomplete",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/EikosPartners/ko-ui-autocomplete",
   "description": "knockout jquery ui autocomplete component",
   "main": "index.js",

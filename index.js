@@ -166,6 +166,14 @@
         ) {
             var options = valueAccessor(), $input, api;
             options.bindingContext = bindingContext;
+            if (valueAccessor().addNew) {
+                options.response = function(event, ui) {
+                    ui.content.push({
+                        label: 'Add new',
+                        value: 'new'
+                    });
+                }
+            }
 
             $(element).empty().append($input = $("<input>"));
             api = $input.ko_autocomplete(options);
